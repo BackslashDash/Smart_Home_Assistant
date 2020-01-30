@@ -8,7 +8,7 @@ Spring Capstone 2020 Project which aims to create a Smart Home Assistant that ma
 
 2. NLU - Natural Language Unit
 
-3. External Interface - Rasberry Pi along with other peripheral devices
+3. External Interface - Raspberry Pi along with other peripheral devices
 
 ## The Goal
 
