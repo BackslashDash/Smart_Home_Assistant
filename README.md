@@ -4,9 +4,11 @@ Spring Capstone 2020 Project which aims to create a Smart Home Assistant that ma
 
 ## Main Components
 
-ASR - Audio Speech Recognition
-NLU - Natural Language Unit
-External Interface - Rasperry Pi along with other peripheral devices
+1. ASR - Audio Speech Recognition
+
+2. NLU - Natural Language Unit
+
+3. External Interface - Rasberry Pi along with other peripheral devices
 
 ## The Goal
 
