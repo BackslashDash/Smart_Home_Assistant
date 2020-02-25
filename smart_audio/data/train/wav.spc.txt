@@ -1,0 +1,6 @@
+rob_b_turn_on_lights C:/Users/Tom/git/Smart_Home_Assistant/smart_audio/data/train/rob_b/robTurnOnLights.wav
+rob_b_turn_off_lights C:/Users/Tom/git/Smart_Home_Assistant/smart_audio/data/train/rob_b/robTurnOffLights.wav
+rob_b_too_bright C:/Users/Tom/git/Smart_Home_Assistant/smart_audio/data/train/rob_b/robTooBrightInHere.wav
+rob_b_too_dark C:/Users/Tom/git/Smart_Home_Assistant/smart_audio/data/train/rob_b/robTooDarkInHere.wav
+rob_b_flip_on C:/Users/Tom/git/Smart_Home_Assistant/smart_audio/data/train/rob_b/robFlipOnLights.wav
+rob_b_flip_off C:/Users/Tom/git/Smart_Home_Assistant/smart_audio/data/train/rob_b/robFlipOffLights.wav
