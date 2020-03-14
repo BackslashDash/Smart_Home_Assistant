@@ -5,6 +5,7 @@
 
 """
 import subprocess
+from pathlib import Path
 import os
 
 # Check if the user has /decode_audio as a directory.
@@ -12,7 +13,7 @@ import os
 
 def hasDecodeDir():
 
-    os.system("cd /")  # Go to root dir
+    os.chdir("/")  # Go to root dir
 
     if os.path.exists("/decode_audio"):
 
@@ -24,13 +25,14 @@ def hasDecodeDir():
 
 
 def main():
+
+    home = str(Path.home())
+
     if hasDecodeDir() == 0:
         print("Creating Directory")
 
-        os.system("cd /")
-
-        make_dir = "sudo mkdir decode_audio"
-        os.system(make_dir)
+        os.chdir("/")
+        os.system("sudo mkdir decode_audio")
 
         assert os.path.exists(
             "/decode_audio"), "decode_audio could not be created!"
@@ -38,14 +40,14 @@ def main():
         print("Directory successfully created!")
 
     # We are going to assume that kaldi is already installed on the machine
-    # Next let's set up a directory
 
-    subprocess.run("cd", shell=True)
-    subprocess.run("cd kaldi/egs/aspire/s5", shell=True)
-    print("Now in the s5 directory")
+    os.chdir(home)
+    os.chdir("kaldi/egs/aspire/s5")
+
+    os.system("teps/online/nnet3/prepare_online_decoding.sh --mfcc-config conf/mfcc_hires.conf data/lang_chain exp/nnet3/extractor exp/chain/tdnn_7b exp/tdnn_7b_chain_online")
+
+
     # yes | os.system("steps/online/nnet3/prepare_online_decoding.sh \
     # --mfcc-config conf/mfcc_hires.conf data/lang_chain exp/nnet3/extractor exp/chain/tdnn_7b exp/tdnn_7b_chain_online")
-
-
 if __name__ == "__main__":
     main()
