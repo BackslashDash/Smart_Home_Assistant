@@ -27,10 +27,10 @@ def main():
     if hasDecodeDir() == 0:
         print("Creating Directory")
 
-        subprocess.run("cd /", shell=True)
+        os.system("/")
 
         make_dir = "sudo mkdir decode_audio"
-        subprocess.run(make_dir, shell=True)
+        os.system(make_dir)
 
         assert os.path.exists(
             "/decode_audio"), "decode_audio could not be created!"
