@@ -12,7 +12,7 @@ import os
 
 def hasDecodeDir():
 
-    os.system("/")  # Go to root dir
+    os.system("cd /")  # Go to root dir
 
     if os.path.exists("/decode_audio"):
 
@@ -27,7 +27,7 @@ def main():
     if hasDecodeDir() == 0:
         print("Creating Directory")
 
-        os.system("/")
+        os.system("cd /")
 
         make_dir = "sudo mkdir decode_audio"
         os.system(make_dir)
