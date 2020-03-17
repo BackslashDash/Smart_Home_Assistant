@@ -1,19 +1,16 @@
 '''
     - Team Members: Brian Ogbebor and Tom Murphy
-    - This script aims to run the online decoding command while using 
-    input from the pyaudio to take in sound
+    - This script aims to pipe audio to the tcp server!
 '''
 
 import os
 import subprocess
-import datetime
+import pyaudio
 from pathlib import Path
 
-p1 = subprocess.run(["cat", "setUp.py"], capture_output=True, text=True)
+p1 = subprocess.Popen(["cat", "setUp.py"],
+                      stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 
-# print(p1.stdout)
+stdout, stderr = p1.communicate()
 
-p2 = subprocess.run(["grep", "-n", "print"],
-                    capture_output=True, text=True, input=p1.stdout)
-
-print(p2.stdout)
+print(stdout.decode())

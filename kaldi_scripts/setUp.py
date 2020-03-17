@@ -40,17 +40,17 @@ def main():
         print("Directory successfully created!")
 
     # We are going to assume that kaldi is already installed on the machine
-    # so let's run the script to prepare online decoding
+    # so let's run the script to prepare online decoding\
+
+    os.system("./run.sh")
 
     os.chdir(home)
     os.chdir("kaldi/egs/aspire/s5")
-    os.system("yes | steps/online/nnet3/prepare_online_decoding.sh --mfcc-config conf/mfcc_hires.conf data/lang_chain exp/nnet3/extractor exp/chain/tdnn_7b exp/tdnn_7b_chain_online")
-
-    # Now we run . path.sh so that we can work from the s5 directory
-
-    os.system(". path.sh")
 
     print("Set up complete!")
+
+    # Sets up Path variables and begins the connection to the tcp server
+    os.system("./runn.sh")
 
 
 if __name__ == "__main__":
