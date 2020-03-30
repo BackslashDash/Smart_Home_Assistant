@@ -1,6 +1,0 @@
-rob_b_turn_on_lights turn on the lights
-rob_b_turn_off_lights turn off the lights
-rob_b_too_bright it's too bright in here
-rob_b_too_dark it's too dark in here
-rob_b_flip_on flip on the lights
-rob_b_flip_off flip off the lights
