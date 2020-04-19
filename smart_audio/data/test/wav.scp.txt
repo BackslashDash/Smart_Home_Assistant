@@ -1,6 +1,0 @@
-tom_m_turn_on_lights C:/Users/Tom/git/Smart_Home_Assistant/smart_audio/data/test/tom_m/tomMurphyTurnOnLights.wav
-tom_m_turn_off_lights C:/Users/Tom/git/Smart_Home_Assistant/smart_audio/data/test/tom_m/tomMurphyTurnOffLights.wav
-tom_m_too_bright C:/Users/Tom/git/Smart_Home_Assistant/smart_audio/data/test/tom_m/tomMurphyTooBright.wav
-tom_m_too_dark C:/Users/Tom/git/Smart_Home_Assistant/smart_audio/data/test/tom_m/tomMurphyTooDark.wav
-tom_m_flip_on C:/Users/Tom/git/Smart_Home_Assistant/smart_audio/data/test/tom_m/tomMurphyFlipOnLights.wav
-tom_m_flip_off C:/Users/Tom/git/Smart_Home_Assistant/smart_audio/data/test/tom_m/tomMurphyFlipOffLights.wav

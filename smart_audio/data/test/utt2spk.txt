@@ -1,6 +1,0 @@
-tom_m_turn_on_lights tom_m
-tom_m_turn_off_lights tom_m
-tom_m_too_bright tom_m
-tom_m_too_dark tom_m
-tom_m_flip_on tom_m
-tom_m_flip_off tom_m

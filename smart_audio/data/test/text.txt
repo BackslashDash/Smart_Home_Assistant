@@ -1,6 +1,0 @@
-tom_m_turn_on_lights turn on the lights
-tom_m_turn_off_lights turn off the lights
-tom_m_too_bright it's too bright in here
-tom_m_too_dark it's too dark in here
-tom_m_flip_on flip on the lights
-tom_m_flip_off flip off the lights
