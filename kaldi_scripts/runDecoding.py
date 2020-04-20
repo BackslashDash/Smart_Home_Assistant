@@ -8,6 +8,13 @@ import wave
 import os
 from random import randint
 import time
+import json
+import requests
+
+data = {
+    "sender": "User",
+    "message": "turn lights off"
+}
 
 # Say yes or anything else if you want to run tests or else just press enter!
 runStats = input("Are you running for statistical purposes?: ")
@@ -54,7 +61,7 @@ if runStats:
     numCorrect = 0
     numIncorrect = 0
 
-    for i in range(0, 5):  # Change the 5 to any other number and that is how many tests you will do!
+    for i in range(0, 30):  # Change the 5 to any other number and that is how many tests you will do!
         position = randint(0, 5)
         print()
         print("Please say: " + phrases[position])
@@ -78,8 +85,23 @@ if runStats:
 
 else:
     # Use this if you are on your own laptop/desktop and not on the server! Be sure to change path as you need it for your own individual computer
+
     os.system("rec -t raw -c 1 -b 16 -r 8k -e signed-integer - trim 0 3 | nc 35.236.233.51 5050 > ~/Desktop/decode_audio/output.txt")
 
     os.chdir("/")
     os.chdir("Users/brianogbebor/Desktop/decode_audio")
     os.system("cat output.txt")
+
+    with open("/Users/brianogbebor/Desktop/decode_audio/output.txt", "r") as output:
+        for line in output:
+            pass
+        last_line = line  # Last line in the output file which is the complete decoded audio
+
+    print(last_line)
+
+    RASA_URL = "http://localhost:5005/webhooks/rest/webhook"
+
+    info = {"sender": "User", "message": last_line}
+
+    print(info)
+    r = requests.post(url=RASA_URL, json=info)
