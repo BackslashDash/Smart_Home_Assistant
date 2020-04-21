@@ -1,47 +1,6 @@
-'''
-    - Team Members: Brian Ogbebor and Tom Murphy
-    - This script aims to pipe audio to the tcp server!
-'''
-
-import pyaudio
 import wave
 import os
 import requests
-
-# The code below will be for the raspberry pi!
-
-# FORMAT = pyaudio.paInt16
-# CHANNELS = 1
-# RATE = 44100
-# CHUNK = 1024
-# RECORD_SECONDS = 5
-# WAVE_OUTPUT_FILENAME = "file.wav"
-# audio = pyaudio.PyAudio()
-# # start Recording
-# stream = audio.open(format=FORMAT, channels=CHANNELS,
-#                     rate=RATE, input=True,
-#                     frames_per_buffer=CHUNK)
-
-# print("recording...")
-# frames = []
-
-# for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
-
-#     data = stream.read(CHUNK)
-#     frames.append(data)
-
-
-# print("finished recording")
-# # stop Recording
-# stream.stop_stream()
-# stream.close()
-# audio.terminate()
-# waveFile = wave.open(WAVE_OUTPUT_FILENAME, 'wb')
-# waveFile.setnchannels(CHANNELS)
-# waveFile.setsampwidth(audio.get_sample_size(FORMAT))
-# waveFile.setframerate(RATE)
-# waveFile.writeframes(b''.join(frames))
-#
 
 # Use this if you are on your own laptop/desktop and not on the server! Be sure to change path as you need it for your own individual computer
 
@@ -56,11 +15,31 @@ with open("/Users/brianogbebor/Desktop/decode_audio/output.txt", "r") as output:
         pass
     last_line = line  # Last line in the output file which is the complete decoded audio
 
-    print(last_line)
-
-RASA_URL = "http://localhost:5005/webhooks/rest/webhook"
+RASA_URL = "http://35.236.233.51:5005/webhooks/rest/webhook"
 
 info = {"sender": "User", "message": last_line}
 
 print(info)
 r = requests.post(url=RASA_URL, json=info)
+print(r.status_code)
+print(r.text)
+
+# sudo rasa run -m models --enable-api --cors “*” --debug
+
+if "turn on the lights" in r.text:
+    ipaddress = "192.168.1.170"
+    username = "-HB48KthRyKrIyHbJFv3N335SQ8gGQvxRW85X8Vo"
+
+    try:
+        url = "http://" + ipaddress + "/api/" + username + "/lights/1/state"
+        # This is the setting for the light to be on
+        data_on = {"on": True, "sat": 254, "bri": 254, "hue": 5000}
+        r = requests.put(url, json.dumps(data_on), timeout=5)
+        print("Turning on the lights")
+
+    except:
+        print(
+            "Looks like we can't connect with the lights...")
+
+else:
+    print("You didn't say it right idiot. Ya snooze ya loose bozo")
