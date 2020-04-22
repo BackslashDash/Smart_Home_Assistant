@@ -25,15 +25,15 @@ print(r.status_code)
 print(r.text)
 
 # sudo rasa run -m models --enable-api --cors “*” --debug
+ipaddress = "192.168.1.170"
+username = "-HB48KthRyKrIyHbJFv3N335SQ8gGQvxRW85X8Vo"
+brightness = 204
 
-if "turn on the lights" in r.text:
-    ipaddress = "192.168.1.170"
-    username = "-HB48KthRyKrIyHbJFv3N335SQ8gGQvxRW85X8Vo"
-
+if "Turning lights on" in r.text:
     try:
         url = "http://" + ipaddress + "/api/" + username + "/lights/1/state"
         # This is the setting for the light to be on
-        data_on = {"on": True, "sat": 254, "bri": 254, "hue": 5000}
+        data_on = {"on": True, "sat": 254, "bri": 204, "hue": 5000}
         r = requests.put(url, json.dumps(data_on), timeout=5)
         print("Turning on the lights")
 
@@ -41,5 +41,41 @@ if "turn on the lights" in r.text:
         print(
             "Looks like we can't connect with the lights...")
 
+elif "Turning lights off" in r.text:
+    try:
+        url = "http://" + ipaddress + "/api/" + username + "/lights/1/state"
+        # This is the setting for the light to be on
+        data_off = {"on": False}
+        r = requests.put(url, json.dumps(data_off), timeout=5)
+        print("Turning off the lights")
+
+    except:
+        print(
+            "Looks like we can't connect with the lights...")
+
+elif "Dimming lights" in r.text:
+    try:
+        brightness = brightness - 50
+        url = "http://" + ipaddress + "/api/" + username + "/lights/1/state"
+        # This is the setting for the light to be on
+        data_on = {"on": True, "sat": 254, "bri": brightness, "hue": 5000}
+        r = requests.put(url, json.dumps(data_off), timeout=5)
+        print("Dimming lights")
+
+    except:
+        print("Looks like we can't connect with the lights...")
+
+elif "Brightening Lights" in r.text:
+    try:
+        brightness = brightness + 50
+        url = "http://" + ipaddress + "/api/" + username + "/lights/1/state"
+        # This is the setting for the light to be on
+        data_on = {"on": True, "sat": 254, "bri": brightness, "hue": 5000}
+        r = requests.put(url, json.dumps(data_on), timeout=5)
+        print("Brightening Lights")
+
+    except:
+        print("Looks like we can't connect with the lights...")
+
 else:
-    print("You didn't say it right idiot. Ya snooze ya loose bozo")
+    print("You stink haha jk but yeah something went wrong")
