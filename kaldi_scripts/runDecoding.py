@@ -66,7 +66,7 @@ elif "Dimming lights" in r.text:
     except:
         print("Looks like we can't connect with the lights...")
 
-elif "Brightening Lights" in r.text:
+elif "Brightening lights" in r.text:
     try:
         brightness = brightness + 50
         url = "http://" + ipaddress + "/api/" + username + "/lights/1/state"
