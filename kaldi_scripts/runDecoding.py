@@ -60,7 +60,7 @@ elif "Dimming lights" in r.text:
         url = "http://" + ipaddress + "/api/" + username + "/lights/1/state"
         # This is the setting for the light to be on
         data_on = {"on": True, "sat": 254, "bri": brightness, "hue": 5000}
-        r = requests.put(url, json.dumps(data_off), timeout=5)
+        r = requests.put(url, json.dumps(data_on), timeout=5)
         print("Dimming lights")
 
     except:
