@@ -28,13 +28,12 @@ print(r.text)
 # sudo rasa run -m models --enable-api --cors “*” --debug
 ipaddress = "192.168.1.170"
 username = "-HB48KthRyKrIyHbJFv3N335SQ8gGQvxRW85X8Vo"
-brightness = 204
 
 if "Turning lights on" in r.text:
     try:
         url = "http://" + ipaddress + "/api/" + username + "/lights/1/state"
         # This is the setting for the light to be on
-        data_on = {"on": True, "sat": 254, "bri": 204, "hue": 5000}
+        data_on = {"on": True, "sat": 254, "bri": 200, "hue": 5000}
         r = requests.put(url, json.dumps(data_on), timeout=5)
         print("Turning on the lights")
 
@@ -56,10 +55,9 @@ elif "Turning lights off" in r.text:
 
 elif "Dimming lights" in r.text:
     try:
-        brightness = brightness - 50
         url = "http://" + ipaddress + "/api/" + username + "/lights/1/state"
         # This is the setting for the light to be on
-        data_on = {"on": True, "sat": 254, "bri": brightness, "hue": 5000}
+        data_on = {"on": True, "sat": 254, "bri": 100, "hue": 5000}
         r = requests.put(url, json.dumps(data_on), timeout=5)
         print("Dimming lights")
 
@@ -68,10 +66,9 @@ elif "Dimming lights" in r.text:
 
 elif "Brightening lights" in r.text:
     try:
-        brightness = brightness + 50
         url = "http://" + ipaddress + "/api/" + username + "/lights/1/state"
         # This is the setting for the light to be on
-        data_on = {"on": True, "sat": 254, "bri": brightness, "hue": 5000}
+        data_on = {"on": True, "sat": 254, "bri": 254, "hue": 5000}
         r = requests.put(url, json.dumps(data_on), timeout=5)
         print("Brightening Lights")
 

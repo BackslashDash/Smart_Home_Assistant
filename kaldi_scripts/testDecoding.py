@@ -17,7 +17,7 @@ for i in range(0, 30):  # Change the 5 to any other number and that is how many 
     print("Sleeping for 3 seconds...")
     time.sleep(3)
     # Change the path below for wherever your decode_audio directory is on your computer
-    os.system("rec -t raw -c 1 -b 16 -r 8k -e signed-integer - trim 0 3 | nc 35.236.233.51 5050 > ~/Desktop/decode_audio/output.txt")
+    os.system("rec -t raw -c 1 -b 16 -r 8k -e signed-integer - trim 0 3 | nc 35.245.203.105 5050 > ~/Desktop/decode_audio/output.txt")
 
     # Change the path below for wherever yoru decode_audio directory is on your computer
     with open("/Users/brianogbebor/Desktop/decode_audio/output.txt", "r") as output:
@@ -32,4 +32,4 @@ for i in range(0, 30):  # Change the 5 to any other number and that is how many 
     print()
     print("Kaldi decoded " + str(numIncorrect) + " phrases incorrectly")
     print()
-    print("Percentage correct: " + str(numCorrect/30 "%")
+    print("Percentage correct: " + str(numCorrect/30) + "%")
