@@ -2,15 +2,16 @@ import os
 import time
 from random import randint
 
-phrases = ["turn on the lights", "turn off the lights", "it's too dark in here",
-           "it's too bright in here", "flip off the lights", "flip off the lights"]
+phrases = ["turn on the lights", "flip on the lights", "switch off the lights", "it is bed time", "lights on", "switch on the lights",
+ "turn off the lights", "it's too dark in here", "bedtime", "dim lights", "lower lights", "its too bright in here", "raise lights",
+           "brighten the room", "it's too bright in here", "flip off the lights", "flip off the lights"]
 
 
 numCorrect = 0
 numIncorrect = 0
 
 for i in range(0, 30):  # Change the 5 to any other number and that is how many tests you will do!
-    position = randint(0, 5)
+    position = randint(0, 16)
     print()
     print("Please say: " + phrases[position])
     print("Sleeping for 3 seconds...")
@@ -30,3 +31,5 @@ for i in range(0, 30):  # Change the 5 to any other number and that is how many 
     print("Kaldi decoded " + str(numCorrect) + " phrases correctly")
     print()
     print("Kaldi decoded " + str(numIncorrect) + " phrases incorrectly")
+    print()
+    print("Percentage correct: " + str(numCorrect/30 "%")
